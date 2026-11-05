@@ -26,15 +26,12 @@ The Armv8-A instructions have a fixed width of 32 bits. Each instruction is enco
 In Lab 1, we used the `objcopy` command to obtain these encodings in a Verilog Memory Model hexadecimal format. These encodings are then read into the “instruction memory” in the Arm Education Core testbench file. The processor then decodes these encodings and executes them accordingly.
 
 To obtain the instruction encodings in a more human-readable format, we shall use the `objdump` tool that is provided with the GNU Toolchain. Follow these steps:
-1. Generate the provided reference artifacts from this repository's root:
+1. In the Codespaces terminal, from this repository's root, run:
    ```bash
    make reference
    ```
-   This generates `reference-lab01/test_lab01.o` and `reference-lab01/test_lab01.mem`.
-2. The same command creates `reference-lab01/test_lab01_disassembly.log`; open that file and compare it with `reference-lab01/test_lab01.mem`.
-   ```bash
-   aarch64-linux-gnu-objdump -d reference-lab01/test_lab01.o > reference-lab01/test_lab01_disassembly.log
-   ```
+   This command assembles the reference program and creates `reference-lab01/test_lab01.o`, `reference-lab01/test_lab01.mem`, and `reference-lab01/test_lab01_disassembly.log`.
+2. Open `reference-lab01/test_lab01_disassembly.log` and compare its instruction encodings with `reference-lab01/test_lab01.mem`. The `make reference` command has already run `objdump`; you do not need to run a separate `objdump` command.
 3. You should see the human-readable disassembly along with the hexadecimal instruction encodings.
 4. Notice that the `.mem` file stores instructions in Little-Endian byte order (Least Significant Byte first).
 
