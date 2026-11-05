@@ -82,6 +82,12 @@ The full MOVZ encoding layout:
 |----|-------|--------|-------|-------|-----|
 | sf | 10    | 100101 | hw    | imm16 | Rd  |
 
+The fields describe how the instruction uses its bits:
+- `sf` is the size flag: `0` selects 32-bit `W` registers, and `1` selects 64-bit `X` registers. Because this instruction uses `X0`, its `sf` value is `1`.
+- `hw` selects which 16-bit portion of the destination register receives the immediate. For an `X` register, `00`, `01`, `10`, and `11` mean shifts of 0, 16, 32, and 48 bits, respectively. `MOVZ` sets the other bits in the destination register to zero.
+- `imm16` is the 16-bit immediate constant supplied in the instruction. Here, `#5` is represented by the 16-bit value five.
+- `Rd` is the 5-bit destination-register field. It identifies the register that receives the result; `X0` has register number 0.
+
 - What are the values of `sf`, `hw`, `imm16`, and `Rd`?
 
 **2. For the instruction `ADD X4, X4, X0`**
