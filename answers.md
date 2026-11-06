@@ -22,6 +22,12 @@ Step 2 — Map bits to the MOVZ field layout:
 | sf | 10    | 100101 | hw    | imm16            | Rd    |
 | 1  | 10    | 100101 | 00    | 0000000000000001 | 00001 |
 
+The fields describe how the instruction uses its bits:
+- `sf` is the size flag: `0` selects 32-bit `W` registers, and `1` selects 64-bit `X` registers. Because this instruction uses `X1`, its `sf` value is `1`.
+- `hw` selects which 16-bit portion of the destination register receives the immediate. For an `X` register, `00`, `01`, `10`, and `11` mean shifts of 0, 16, 32, and 48 bits, respectively. `MOVZ` sets the other bits in the destination register to zero.
+- `imm16` is the 16-bit immediate constant supplied in the instruction. Here, `#1` is represented by the 16-bit value one.
+- `Rd` is the 5-bit destination-register field. It identifies the register that receives the result; `X1` has register number 1, encoded as `00001`.
+
 Step 3 — Identify each field:
 - `sf` = 1 → 64-bit register
 - `hw` = 00 → no shift (LSL #0)
