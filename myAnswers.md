@@ -1,4 +1,4 @@
-# Lab 02 Answers
+# Lab 02 My Answers
 **Student Name:** YOUR NAME HERE
 
 ---

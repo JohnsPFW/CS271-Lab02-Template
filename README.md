@@ -30,7 +30,7 @@ After completing this lab, you will be able to:
 
 Read **`CA_lab_2.md`** in this folder. It contains all tasks, exercises, and questions for this lab.
 
-Record all of your answers in **`answers.md`**.
+Record all of your answers in **`myAnswers.md`**.
 
 To build and simulate:
 ```bash

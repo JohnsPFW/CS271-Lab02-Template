@@ -62,15 +62,15 @@ In this exercise, we will decode some of the Armv8-A instructions used, specific
 - `SUBS`
 - `B.NE`
 
-Based on the disassembly log generated in *Section 3.1*, answer the following questions in `answers.md`.
+Based on the disassembly log generated in *Section 3.1*, answer the following questions in `myAnswers.md`.
 
 **For each question, follow these steps:**
 1. Find the 8-digit hex encoding next to the instruction in your disassembly log.
 2. Convert it to 32 binary digits (4 bits per hex digit).
 3. Map each group of bits to the field diagram provided.
-4. Record the hex encoding, the binary string, and the field values in `answers.md`.
+4. Record the hex encoding, the binary string, and the field values in `myAnswers.md`.
 
-A worked example using `MOVZ X1, #1` (encoding `d2800021`) is provided at the top of `answers.md` to show you the process.
+A worked example using `MOVZ X1, #1` (encoding `d2800021`) is provided at the top of `myAnswers.md` to show you the process.
 
 ---
 
@@ -154,7 +154,7 @@ _start:
     YIELD
 ```
 1. Build and simulate it using `make sim` from the repo root. If the simulation prints `[EDUCORE LOG]: Apollo has landed`, the code assembled and executed correctly. The simulation does not display register values — the questions below are answered by hand-tracing the instructions.
-2. Record your answers in `answers.md` under **Section 4.1**:
+2. Record your answers in `myAnswers.md` under **Section 4.1**:
    - What is the value loaded into X5 after the `MOVZ` and `MOVK` execute? *(Trace through each instruction: what does MOVZ load, and what does MOVK change?)*
    - What is the resulting hexadecimal value of register `X6`? *(Apply the AND bitmask to your X5 value from above.)*
    - What is the resulting hexadecimal value of register `X7`? *(Apply the ORR bitmask to your X5 value from above.)*
@@ -170,7 +170,7 @@ If you were to write `CMP X0, X1` instead, it is actually an alias for a `SUBS` 
 Arm translates `CMP Xn, Xm` to: `SUBS XZR, Xn, Xm`.
 The result of the subtraction is discarded in the Zero Register (`XZR`), but the flags are still set for branching!
 
-Record your answers in `answers.md` under **Section 5**.
+Record your answers in `myAnswers.md` under **Section 5**.
 
 ## 6. Summary
 In this lab, we have learned how encodings are interpreted, how constants fit into a 32-bit instruction, and that there are instruction aliases like `CMP` in the Armv8-A ISA.
